@@ -1,14 +1,9 @@
 name: Lint
 
 on:
-  pull_request:
-    branches:
-      - master
   push:
     branches:
-      - trunk-merge/**
-
-  workflow_dispatch:
+      - master
 
 jobs:
   trunk-check:
@@ -20,5 +15,5 @@ jobs:
       - name: Trunk Check
         uses: trunk-io/trunk-action@v1
         with:
+          check-mode: all
           trunk-token: ${{ secrets.TRUNK_TOKEN }}
-          post-annotations: true
